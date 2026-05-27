@@ -16,6 +16,12 @@ const ranges = [
   { label: "90d", value: "90d" },
 ];
 
+const quickActions = [
+  "Create project room",
+  "Start billing reminder",
+  "Open launch review",
+];
+
 export function Topbar() {
   const { dashboardRange, setDashboardRange } = useWorkspace();
   const { resolvedTheme, setTheme } = useTheme();
@@ -86,17 +92,15 @@ export function Topbar() {
                 Prototype a new client room, generate a billing reminder, or open a launch war-room.
               </p>
               <div className="mt-6 grid gap-3">
-                {["Create project room", "Start billing reminder", "Open launch review"].map(
-                  (item) => (
-                    <button
-                      key={item}
-                      type="button"
-                      className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-zinc-200 transition hover:border-cyan-400/30 hover:bg-cyan-400/10"
-                    >
-                      {item}
-                    </button>
-                  ),
-                )}
+                {quickActions.map((item) => (
+                  <button
+                    key={item}
+                    type="button"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-sm text-zinc-200 transition hover:border-cyan-400/30 hover:bg-cyan-400/10"
+                  >
+                    {item}
+                  </button>
+                ))}
               </div>
               <div className="mt-6 flex justify-end gap-3">
                 <Button variant="ghost" onClick={() => setModalOpen(false)}>

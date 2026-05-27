@@ -16,7 +16,10 @@ const columns: { key: BoardColumn; label: string }[] = [
 function nextColumn(column: BoardColumn, direction: "left" | "right"): BoardColumn {
   const order: BoardColumn[] = ["todo", "progress", "done"];
   const index = order.indexOf(column);
-  const target = direction === "left" ? Math.max(0, index - 1) : Math.min(2, index + 1);
+  const target =
+    direction === "left"
+      ? Math.max(0, index - 1)
+      : Math.min(order.length - 1, index + 1);
   return order[target];
 }
 
