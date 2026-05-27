@@ -49,6 +49,7 @@ export function Topbar() {
           <Button
             variant="ghost"
             size="icon"
+            aria-label="Toggle theme"
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
           >
             {resolvedTheme === "dark" ? (

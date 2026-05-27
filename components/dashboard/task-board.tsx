@@ -66,6 +66,7 @@ export function TaskBoard() {
                   <div className="mt-4 flex items-center justify-between">
                     <button
                       type="button"
+                      aria-label={`Move ${task.title} to the previous column`}
                       onClick={() => moveTask(task, "left")}
                       disabled={task.column === "todo"}
                       className="inline-flex items-center gap-2 text-xs text-zinc-400 disabled:opacity-30"
@@ -75,6 +76,7 @@ export function TaskBoard() {
                     </button>
                     <button
                       type="button"
+                      aria-label={`Move ${task.title} to the next column`}
                       onClick={() => moveTask(task, "right")}
                       disabled={task.column === "done"}
                       className="inline-flex items-center gap-2 text-xs text-zinc-400 disabled:opacity-30"
