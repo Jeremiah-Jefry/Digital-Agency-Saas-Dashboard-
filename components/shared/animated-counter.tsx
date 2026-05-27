@@ -1,6 +1,6 @@
 "use client";
 
-import { animate, useMotionValue, useTransform } from "framer-motion";
+import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect } from "react";
 
 export function AnimatedCounter({
@@ -26,5 +26,5 @@ export function AnimatedCounter({
     return () => controls.stop();
   }, [count, value]);
 
-  return <span>{rounded}</span>;
+  return <motion.span>{rounded}</motion.span>;
 }

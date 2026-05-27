@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useMemo } from "react";
 
 export function ParticleField() {
@@ -7,10 +8,10 @@ export function ParticleField() {
     () =>
       Array.from({ length: 42 }, (_, index) => ({
         id: index,
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        delay: `${Math.random() * 4}s`,
-        duration: `${4 + Math.random() * 4}s`,
+        left: `${(index * 17) % 100}%`,
+        top: `${(index * 23) % 100}%`,
+        delay: `${(index % 6) * 0.5}s`,
+        duration: `${4 + (index % 5)}s`,
       })),
     [],
   );
@@ -27,7 +28,7 @@ export function ParticleField() {
               top: particle.top,
               animationDelay: particle.delay,
               "--duration": particle.duration,
-            } as React.CSSProperties
+            } as CSSProperties
           }
         />
       ))}

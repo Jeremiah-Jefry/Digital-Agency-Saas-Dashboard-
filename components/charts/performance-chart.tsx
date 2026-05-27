@@ -1,10 +1,22 @@
 "use client";
 
+import { useSyncExternalStore } from "react";
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
 import { performanceSeries } from "@/data/mock-data";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function PerformanceChart() {
+  const mounted = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false,
+  );
+
+  if (!mounted) {
+    return <Skeleton className="h-72 w-full rounded-[24px]" />;
+  }
+
   return (
     <div className="h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
